@@ -6,9 +6,7 @@ import { IContenderUsersResponse } from "../types/contender-data.interface";
 import { API_URL } from "../types/api-url";
 import { ICompaniesResponse } from "../types/companies-data.interface";
 
-@Injectable({
-	providedIn: "root"
-})
+@Injectable()
 export class WorkspaceService {
 
 	private _headers: HttpHeaders;
@@ -16,7 +14,7 @@ export class WorkspaceService {
 
 	constructor(private _http: HttpClient) {
 
-		let storedToken: string | null = localStorage.getItem(LocalStorageKeys.USER_TOKEN);
+		const storedToken: string | null = localStorage.getItem(LocalStorageKeys.USER_TOKEN);
 
 		if (storedToken) {
 			this._api_key = JSON.parse(storedToken).accessToken;

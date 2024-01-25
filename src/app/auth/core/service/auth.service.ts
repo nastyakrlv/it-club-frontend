@@ -7,9 +7,7 @@ import { LocalStorageKeys } from '../../../types/local-storage-keys';
 import { TuiAlertService } from '@taiga-ui/core';
 import { IReferralCode } from '../../../types/referral-code.interface';
 
-@Injectable({
-	providedIn: 'root',
-})
+@Injectable()
 export class AuthService {
 	public errorMessage: string | undefined;
 	public errorStatus: number | undefined;
