@@ -40,7 +40,7 @@
 
 *Примечание*: Сервер может быть недоступен.
 
-<img width="336" alt="image" src="https://github.com/nastyakrlv/it-club-frontend/assets/112975832/f96e0ec7-a08b-4eee-82da-1b2ae744bb5a">
+<img width="337" alt="image" src="https://github.com/nastyakrlv/it-club-frontend/assets/112975832/b34ffa4c-11ad-47d3-9012-56ef872446c0">
 
 
 Что было освоено:
