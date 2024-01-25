@@ -1,0 +1,116 @@
+@import 'src/colors';
+
+p {
+    margin: 0;
+}
+
+.company-card {
+    background-color: $itcc-bg-800;
+    padding: 15px;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 0.4px;
+    font-weight: 500;
+
+    width: 90%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-self: center;
+    border-radius: 8px;
+
+
+    .top-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+
+        .main-info {
+            display: flex;
+            justify-content: space-between;
+            width: 70%;
+
+            .info {
+
+                .title {
+                    font-size: 19px;
+                    color: $itcc-violet-100;
+                    line-height: 28px;
+                    font-weight: 900;
+                }
+
+                .specialization {
+                    color: $itcc-violet-400;
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+
+                .location {
+                    color: $itcc-violet-100;
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+
+            .favourites {
+                display: flex;
+                flex-direction: column;
+                gap: 0.7rem;
+
+                tui-badge {
+                    border-radius: 3px;
+                    font-size: .8rem;
+                    padding: .7rem .4rem;
+
+                    tui-svg {
+                        width: 1.2rem;
+                        margin-right: .1rem;
+                    }
+
+                }
+
+                .stars {
+                    background-color: $itcc-orange-500;
+                }
+
+                .favourite {
+                    border-radius: 8px;
+                    background-color: $itcc-violet-400;
+                    align-self: flex-end;
+                    cursor: pointer;
+                }
+
+                .like {
+                    background-color: red;
+                }
+            }
+        }
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px;
+    }
+
+    button {
+        width: 240px;
+        height: 32px;
+        align-self: center;
+        background-color: none;
+        border: 1px solid $itcc-violet-400;
+        font-family: "Manrope", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 20px;
+    }
+
+    button:active {
+        background-color: $itcc-violet-400;
+    }
+
+}

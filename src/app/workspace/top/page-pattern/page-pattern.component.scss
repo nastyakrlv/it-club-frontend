@@ -1,0 +1,100 @@
+@import 'src/colors';
+
+
+p {
+    margin: 0;
+    align-self: center;
+}
+
+div {
+    background-color: $itcc-main-background;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .totalAndFilter {
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            width: 90%;
+            background-color: $itcc-main-background;
+            padding: 12px 0px;
+
+            .total {
+                font-size: 13px;
+                color: $itcc-violet-100;
+                width: fit-content;
+            }
+
+            .sort {
+
+                width: fit-content;
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+                align-items: center;
+
+                .svg {
+                    cursor: pointer;
+                    all: unset;
+                    align-items: center;
+                    display: flex;
+                }
+
+                .rotated {
+                    transform: rotate(180deg);
+                }
+
+                tui-select {
+                    width: 209px;
+                }
+            }
+
+        }
+    }
+
+
+    tui-loader {
+        min-height: 80vh;
+    }
+
+    .cards {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .error {
+        color: $itcc-orange-500;
+        font-weight: 800;
+        text-align: center;
+        font-size: large;
+        padding: 15px;
+    }
+
+    .pagination {
+        position: sticky;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        background-color: $itcc-main-background;
+        width: 100%;
+        z-index: 100;
+        padding: 10px 0;
+    }
+
+}

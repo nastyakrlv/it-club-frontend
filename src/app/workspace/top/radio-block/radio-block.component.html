@@ -1,0 +1,25 @@
+<form [formGroup]="radioBlockFormGroup"
+    tuiGroup
+    tuiMode="onDark"
+    class="radio-group"
+    collapsed="true">
+        <tui-radio-block
+        contentAlign="left"
+        formControlName="contenderOrCompany"
+        item="contender"
+        size="s"
+        routerLink="./contender-users"
+        >
+            Соискатели
+        </tui-radio-block>
+        <tui-radio-block
+            contentAlign="left"
+            formControlName="contenderOrCompany"
+            item="company"
+            size="s"
+            routerLink="./companies"
+        >
+            Компании
+        </tui-radio-block>
+
+</form>

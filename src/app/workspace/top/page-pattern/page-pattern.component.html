@@ -1,0 +1,60 @@
+<div class="container"
+  tuiMode="onDark">
+
+  <div class="form" *ngIf="!errorMessage">
+    <form 
+      class="totalAndFilter" 
+      tuiMode="onDark"
+      [formGroup]="filterFormGroup"> 
+    
+      <p class="total">{{totalPagination}} {{ title }}</p>
+
+      <div class="sort">
+        <button class="svg"
+          (click)="sort()"
+          tuiHint="Данный функционал пока не реализован">
+          <svg 
+            [ngClass]="{ 'rotated': isRotated }"
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M4.09999 10.665H12C12.3 10.665 12.5 10.465 12.5 10.165C12.5 10.065 12.5 9.96495 12.4 9.86495L8.49999 5.16495C8.29999 4.96495 7.99999 4.96495 7.79999 5.06495L7.69999 5.16495L3.69999 9.86495C3.49999 10.065 3.49999 10.365 3.69999 10.565C3.79999 10.665 3.99999 10.665 4.09999 10.665Z" fill="#9D72ED"/>
+          </svg>
+        </button>
+
+        <tui-select formControlName="filterList"
+          tuiTextfieldSize="s"
+          appearance="custom"
+          >
+          <tui-data-list-wrapper
+            tuiHint="Данный функционал пока не реализован"
+            *tuiDataList
+            [items]="items"
+          ></tui-data-list-wrapper>
+        </tui-select>
+      </div>
+    </form>
+  </div>
+  
+  <div tuiMode="onDark" *ngIf="isLoading; else cardsBlock">
+    <tui-loader [showLoader]="isLoading" [size]="'l'"></tui-loader>
+  </div>
+
+  <ng-template #cardsBlock>
+    <div class="cards" *ngIf="!errorMessage; else errorBlock">        
+        <ng-content></ng-content>
+    </div>   
+  </ng-template>
+
+  <tui-pagination *ngIf="!errorMessage"
+      class="pagination"
+      [size]="'l'"
+      [length]="length"
+      [index]="index"
+      (indexChange)="goToPage($event)"
+  ></tui-pagination>
+
+  <ng-template #errorBlock>
+    <span class="error">
+        {{errorMessage}}
+    </span>
+  </ng-template>
+</div>

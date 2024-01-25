@@ -1,0 +1,59 @@
+<div class="user-card" tuiMode="onDark">
+    <div class="main-part">
+        <div class="information">
+            <div class="person-info">
+                <p class="online">• Был(а) онлайн в ( нет данных ). Пример реализации: {{ user.updated_at | date:'hh:mm' }}</p>
+                <p class="name-surname">{{ user.mainInfo?.name }} {{ user.mainInfo?.surname}}</p>
+                <p class="speciality">{{user.contenderInfo?.vocation}}</p>
+                <div class="badge">
+                    <tui-badge size="xs" value="1521" class="stars" ><tui-svg src="tuiIconStar"></tui-svg></tui-badge>
+                    <tui-badge size="xs" value="Эксперт" class="status" ><tui-svg src="tuiIconBookmark"></tui-svg></tui-badge>
+                </div>
+            </div>
+
+            <div class="work-info">
+                <div class="work-experience">
+                    <p class="head">Опыт работы</p>
+                    <p class="info">{{ formattedWorkExperience }}</p>
+                </div>
+
+                <div class="salary">
+                    <p class="head">Заработная плата</p>
+                    <p class="info">{{ user.contenderInfo?.salary }} руб.</p>
+                </div>
+
+                <div class="last-job-place">
+                    <p class="head">Последнее место работы</p>
+                    <p class="info">{{ user.contenderInfo?.lastJobPlace }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="avatar-part">
+            <div class="avatar">
+                <tui-avatar
+                    size="xl"
+                    [avatarUrl]="null"
+                    [rounded]="true"
+                ></tui-avatar>
+                <tui-svg class="avatar-checkbox" src="tuiIconCheckCircleLarge"></tui-svg>
+            </div>
+
+            <tui-marker-icon
+                class="favourite"
+                mode="primary"
+                src="tuiIconHeart"
+                size="xs"
+                (click)="like()"
+                [ngClass]="{ 'like': isLiked }"
+                tuiHint="Данный функционал пока не реализован"
+            ></tui-marker-icon>
+        </div>
+    </div>
+    
+    <button
+        tuiButton
+        appearance="custom"
+    >
+        Открыть профиль
+    </button>
+</div>

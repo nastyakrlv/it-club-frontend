@@ -1,0 +1,12 @@
+<app-page-pattern
+  [totalPagination]="totalPagination"
+  [items]="items"
+  [length]="length"
+  [isLoading]="usersIsLoading"
+  [title]="'резюме'"
+  [errorMessage]="errorMessage"
+  (pageIndexChange)="goToPage($event)"
+
+>
+  <app-user-card *ngFor="let user of contenderData" [user]="user"></app-user-card>
+</app-page-pattern>

@@ -1,0 +1,42 @@
+<div class="company-card" tuiMode="onDark">
+    <div class="top-info">
+        <tui-avatar
+            size="xl"
+            [avatarUrl]="company.logo"
+            [rounded]="true"
+        ></tui-avatar>
+
+        <div class="main-info">
+            <div class="info">
+                <p class="title">{{company.name}}</p>
+                <p class="specialization">{{company.direction}}</p>
+                <p class="location">{{company.geolocation}}</p>
+            </div>
+            
+            <div class="favourites">
+                <tui-badge size="xs" value="{{company.rating}}" class="stars" ><tui-svg src="tuiIconStar"></tui-svg></tui-badge>
+                <tui-marker-icon
+                    class="favourite"
+                    mode="primary"
+                    src="tuiIconHeart"
+                    size="xs"
+                    (click)="like()"
+                    [ngClass]="{ 'like': company.favorited }"
+                    tuiHint="Данный функционал пока не реализован"
+                ></tui-marker-icon>
+            </div>
+        </div>
+    </div>
+    <div class="tags">
+        <tui-tag *ngFor="let world of company.tags"
+            size="s"
+            [value]="world"
+        ></tui-tag>
+    </div>
+    <button
+        tuiButton
+        appearance="custom"
+    >
+        Оставить отзыв
+    </button>
+</div>

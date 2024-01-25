@@ -1,0 +1,24 @@
+<div class="container" tuiMode="onDark">
+	<form [formGroup]="inputCodeForm" (ngSubmit)="onFormSubmit()">
+		<div class="code-input">
+			<div *ngFor="let digit of digits; let i = index">
+				<tui-input
+					#digitInput
+					formControlName="digit{{ digit }}"
+					tuiTextfieldSize="m"
+					[tuiTextfieldLabelOutside]="true">
+					<input
+						tuiTextfield
+						type="text"
+						maxlength="1"
+						autocomplete="off"
+						(input)="onDigitInputChange(i)"
+						(keydown)="onKeyDown($event, i - 1, i)"
+						(focus)="onFocus(i)"
+						(keypress)="onKeyPress($event)" />
+				</tui-input>
+			</div>
+		</div>
+		<button appearance="custom" tuiButton type="submit" [disabled]="inputCodeForm.invalid">Войти в IT</button>
+	</form>
+</div>

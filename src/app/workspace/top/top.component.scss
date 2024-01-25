@@ -1,0 +1,29 @@
+div {
+    background-color: #201D24;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    width: 100%;
+}
+
+:host {
+    flex: 1;
+    display: flex;
+
+    .container {
+        display: grid;
+        grid-template-rows: min-content min-content 0 1fr;
+        flex: 1;
+
+        app-search {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        app-radio-block {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,159 @@
+@import 'src/colors';
+
+p {
+    margin: 0;
+}
+
+.user-card {
+    background-color: $itcc-bg-800;
+    padding: 15px;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 0.4px;
+    font-weight: 500;
+    width: 90%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    border-radius: 8px;
+
+    .main-part {
+        display: flex;
+        justify-content: space-between;
+
+        .person-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            margin-bottom: 16px;
+
+            .online {
+                font-size: 9px;
+                font-weight: 400;
+                color: $itcc-black-400;
+            }
+
+            .name-surname {
+                color: $itcc-violet-100;
+                font-size: 17px;
+                font-weight: 800;
+            }
+
+            .speciality {
+                font-size: 13px;
+                color: $itcc-violet-400;
+            }
+
+            .badge {
+                display: flex;
+                flex-direction: row;
+                gap: 3px;
+
+                tui-badge {
+                    border-radius: 3px;
+                    font-size: .8rem;
+                    padding: .7rem .4rem;
+
+                    tui-svg {
+                        width: 1.2rem;
+                        margin-right: .1rem;
+                    }
+
+                }
+
+                .stars {
+                    background-color: $itcc-orange-500;
+                }
+
+                .status {
+                    background-color: $itcc-violet-400;
+                }
+            }
+        }
+
+        .work-info {
+            display: grid;
+            grid-template:
+                "work-experience salary"
+                "last-job-place last-job-place" / auto auto;
+            row-gap: 8px;
+            column-gap: 16px;
+            width: fit-content;
+
+            .work-experience {
+                grid-area: work-experience;
+            }
+
+            .salary {
+                grid-area: salary;
+            }
+
+            .last-job-place {
+                grid-area: last-job-place;
+            }
+
+            .head {
+                font-size: 9px;
+                font-weight: 400;
+                color: $itcc-black-400;
+                line-height: 14px;
+            }
+
+            .info {
+                font-size: 13px;
+                font-weight: 400;
+                color: #E6E5E7;
+            }
+
+        }
+
+        .avatar-part {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .avatar {
+                position: relative;
+
+                .avatar-checkbox {
+                    background-color: #814AE8;
+                    border-radius: 50%;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+
+            .favourite {
+                border-radius: 8px;
+                background-color: $itcc-violet-400;
+                align-self: flex-end;
+                cursor: pointer;
+            }
+
+            .like {
+                background-color: red;
+            }
+
+        }
+    }
+
+    button {
+        width: 240px;
+        height: 32px;
+        align-self: center;
+        background-color: none;
+        border: 1px solid $itcc-violet-400;
+        font-family: "Manrope", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 20px;
+    }
+
+    button:active {
+        background-color: $itcc-violet-400;
+    }
+}

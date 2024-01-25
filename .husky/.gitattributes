@@ -1,0 +1,2 @@
+pre-commit eol=lf
+_/husky.sh eol=lf

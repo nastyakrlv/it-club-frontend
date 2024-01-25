@@ -1,0 +1,73 @@
+stages:
+  - install_dependencies
+  - build
+  - publish
+  - deploy
+
+install_dependencies:
+  stage: install_dependencies
+  image: node:20.6-alpine3.17
+  script:
+    - npm ci
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules
+  only:
+    refs:
+      - master
+    changes:
+      - package-lock.json
+
+build_app:
+  stage: build
+  image: node:20.6-alpine3.17
+  script:
+    - npm run build
+  artifacts:
+    name: "build-result"
+    paths:
+      - dist/it-club-frontend
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules
+    policy: pull
+  only:
+    refs:
+      - master
+
+publish_image:
+  stage: publish
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script:
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD
+  script:
+    - docker build -t dima0712/it-club:$CI_COMMIT_SHA .
+    - docker push dima0712/it-club:$CI_COMMIT_SHA
+  only:
+    refs:
+      - master
+
+deploy_image:
+  stage: deploy
+  before_script:
+    - command -v ssh-agent >/dev/null || ( apk add --update openssh )
+    - eval $(ssh-agent -s)
+    - chmod 400 $WEBSERVER_SSH_KEY
+  script:
+    - ssh -o StrictHostKeyChecking=accept-new -i $WEBSERVER_SSH_KEY user@10.0.3.21 "
+        docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD &&
+        docker stop frontend || true && docker rm frontend || true &&
+        docker run --name frontend -d -p 4200:80 dima0712/it-club:$CI_COMMIT_SHA"
+  only:
+    refs:
+      - master

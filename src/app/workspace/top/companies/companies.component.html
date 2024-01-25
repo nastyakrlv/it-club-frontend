@@ -1,0 +1,11 @@
+<app-page-pattern
+  [totalPagination]="totalPagination"
+  [items]="items"
+  [length]="length"
+  [isLoading]="companiesIsLoading"
+  [title]="'компаний'"
+  [errorMessage]="errorMessage"
+  (pageIndexChange)="goToPage($event)"
+>
+    <app-company-card *ngFor="let company of companiesData" [company]="company"></app-company-card>
+</app-page-pattern>

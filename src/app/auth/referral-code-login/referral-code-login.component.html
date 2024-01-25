@@ -1,0 +1,10 @@
+<div tuiMode="onDark" *ngIf="loginIsLoading; else errorBlock">
+	<tui-loader [showLoader]="loginIsLoading" [size]="'l'"></tui-loader>
+</div>
+<ng-template #errorBlock>
+	<div class="container">
+		<app-logo></app-logo>
+		<h1 class="errorStatus">{{ errorStatus }}</h1>
+		<h2 class="errorMessage">{{ errorMessage }}</h2>
+	</div>
+</ng-template>

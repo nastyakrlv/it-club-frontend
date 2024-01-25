@@ -1,0 +1,5 @@
+.container {
+    min-height: 100vh;
+    display: flex; //адаптив если будет header
+    flex-direction: column; //адаптив если будет header
+}
